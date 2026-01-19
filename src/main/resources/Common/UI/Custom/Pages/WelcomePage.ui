@@ -1,0 +1,117 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {
+    $C.@DecoratedContainer {
+        Anchor: (Width: 1000, Height: 700);
+
+        #Title {
+            $C.@Title {
+                @Text = "SERVER INFO";
+            }
+        }
+
+        #Content {
+            LayoutMode: Top;
+            Label #TitleWelcome {
+                Text: "";
+                Style: (FontSize: 45, TextColor: #ffffff, Alignment: Center, RenderBold: true);
+            }
+
+            Group {
+                Anchor: (Height: 2.5);
+                Background: #eeeeee(0.95);
+            }
+
+            Group {
+                Anchor: (Height: 30);
+            }
+
+            Group {
+                LayoutMode: TopScrolling;
+                ScrollbarStyle: $C.@DefaultScrollbarStyle;
+
+                Label #ServerDescription {
+                    Text: "";
+                    Style: (FontSize: 23, TextColor: #ffffff, Wrap: true);
+                }
+
+                Group {
+                    Anchor: (Height: 30);
+                }
+
+                Group {
+                    LayoutMode: Left;
+                    Anchor: (Height: 250);
+                    Group {
+                        FlexWeight: 1;
+                        LayoutMode: TopScrolling;
+                        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+                        Padding: (Right: 50);
+
+                        Label #TitleServerRules {
+                            Text: "• SERVER RULES";
+                            Padding: (Bottom: 15);
+                            Style: (FontSize: 30, TextColor: #ffffff, RenderBold: true);
+                        }
+
+                        Group #RulesGroup {
+                            LayoutMode: Top;
+                            Label #RulesText {
+                                Text: "";
+                                Style: (FontSize: 18, TextColor: #ffffff, Wrap: true);
+                            }
+                        }
+                    }
+
+                    Group {
+                        FlexWeight: 1;
+                        LayoutMode: TopScrolling;
+                        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+
+                        Label #TitleUsefulCommands {
+                            Text: "• Useful commands";
+                            Padding: (Bottom: 15);
+                            Style: (FontSize: 30, TextColor: #ffffff, RenderBold: true);
+                        }
+
+                        Group #UsefulCommandsGroup {
+                            LayoutMode: Top;
+                            Label #UsefulCommandsText {
+                                Text: "";
+                                Style: (FontSize: 18, TextColor: #ffffff, Wrap: true);
+                            }
+                        }
+                    }
+                }
+            }
+            Group {
+                LayoutMode: Left;
+                Padding: (Top: 30);
+
+                Label #DiscordTitle {
+                    Text: "Join the discord: ";
+                    Style: (FontSize: 23, TextColor: #ffffff, RenderBold: true);
+                }
+
+                Label #DiscordLink {
+                    Text: "";
+                    Style: (FontSize: 23, TextColor: #ffffff);
+                }
+            }
+
+            Group {
+                FlexWeight: 1;
+            }
+
+            Group {
+                LayoutMode: Center;
+
+                TextButton #CloseBtn {
+                    Text: "Close";
+                    Anchor: (Width: 150, Height: 50);
+                    Style: $C.@DefaultTextButtonStyle;
+                }
+            }
+        }
+    }
+}

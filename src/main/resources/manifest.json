@@ -1,0 +1,22 @@
+{
+  "Group": "andreibancos",
+  "Name": "WelcomeUI",
+  "Version": "1.0.0",
+  "Description": "This is a mod for hytale servers that displays a configurable Welcome UI for players entering the server.",
+  "Authors": [
+    {
+      "Name": "Andrei Bancos"
+    }
+  ],
+  "Website": "https://github.com/andrei-bancos/WelcomeUI",
+  "ServerVersion": "*",
+  "Dependencies": {
+    "Hytale:AccessControlModule": "*"
+  },
+  "OptionalDependencies": {
+
+  },
+  "DisabledByDefault": false,
+  "Main": "com.andreibancos.WelcomeUI",
+  "IncludesAssetPack": true
+}
