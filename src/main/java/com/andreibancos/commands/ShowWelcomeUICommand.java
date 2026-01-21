@@ -13,10 +13,10 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
 import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 
-public class ShowWelcomeUI extends AbstractPlayerCommand {
+public class ShowWelcomeUICommand extends AbstractPlayerCommand {
     private final Config<WelcomeUIConfig> config;
 
-    public ShowWelcomeUI(Config<WelcomeUIConfig> config) {
+    public ShowWelcomeUICommand(Config<WelcomeUIConfig> config) {
         super("show-welcome-ui", "Open WelcomeUI");
         this.config = config;
     }

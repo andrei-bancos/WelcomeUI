@@ -16,6 +16,11 @@ public class WelcomeUIEvent {
 
     public void onPlayerReady(PlayerReadyEvent event) {
         Player player = event.getPlayer();
+
+        if(!player.isFirstSpawn() && this.config.get().openJustOneTimeForNewPlayers()) {
+            return;
+        }
+
         Ref<EntityStore> ref = event.getPlayerRef();
         assert player.getWorld() != null;
         EntityStore store = player.getWorld().getEntityStore();

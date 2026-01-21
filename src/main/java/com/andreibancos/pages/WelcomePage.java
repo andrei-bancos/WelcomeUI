@@ -18,12 +18,12 @@ import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 
 public class WelcomePage extends InteractiveCustomUIPage<WelcomePage.WelcomeUIData> {
     private final Config<WelcomeUIConfig> config;
-    private final String playerName;
+    private final PlayerRef playerRef;
 
     public WelcomePage(PlayerRef playerRef, Config<WelcomeUIConfig> config) {
         super(playerRef, CustomPageLifetime.CanDismissOrCloseThroughInteraction, WelcomeUIData.CODEC);
         this.config = config;
-        this.playerName = playerRef.getUsername();
+        this.playerRef = playerRef;
     }
 
     @Override
@@ -35,17 +35,30 @@ public class WelcomePage extends InteractiveCustomUIPage<WelcomePage.WelcomeUIDa
     ) {
         uiCommandBuilder.append("Pages/WelcomePage.ui");
 
-        uiCommandBuilder.set("#TitleWelcome.Text", "Welcome " + playerName + " to the server!");
-        uiCommandBuilder.set("#ServerDescription.Text", this.config.get().getServerDescription());
+        uiCommandBuilder.set("#MainTitle.Text", this.formatText(this.config.get().getMainTitle(), playerRef));
+        uiCommandBuilder.set("#ServerDescription.Text", this.formatText(this.config.get().getServerDescription(), playerRef));
+
         uiCommandBuilder.set(
-                "#RulesText.Text",
-                String.join("\n", this.config.get().getRules())
+                "#FirstColTitle.Text",
+                String.join("\n", this.config.get().getFirstColTitle())
         );
         uiCommandBuilder.set(
-                "#UsefulCommandsText.Text",
-                String.join("\n", this.config.get().getUsefulCommands())
+                "#FirstColContent.Text",
+                String.join("\n", this.config.get().getFirstColContent())
         );
-        uiCommandBuilder.set("#DiscordLink.Text", this.config.get().getDiscordLink());
+
+        uiCommandBuilder.set(
+                "#SecondColTitle.Text",
+                String.join("\n", this.config.get().getSecondColTitle())
+        );
+        uiCommandBuilder.set(
+                "#SecondColContent.Text",
+                String.join("\n", this.config.get().getSecondColContent())
+        );
+
+        uiCommandBuilder.set("#LinkGroup.Visible", this.config.get().getShowLink());
+        uiCommandBuilder.set("#LinkTitle.Text", this.config.get().getLinkTitle());
+        uiCommandBuilder.set("#LinkContent.Text", this.config.get().getLinkContent());
 
         uiEventBuilder.addEventBinding(CustomUIEventBindingType.Activating, "#CloseBtn");
     }
@@ -64,5 +77,13 @@ public class WelcomePage extends InteractiveCustomUIPage<WelcomePage.WelcomeUIDa
     public static class WelcomeUIData {
         public static final BuilderCodec<WelcomeUIData> CODEC =
                 BuilderCodec.builder(WelcomeUIData.class, WelcomeUIData::new).build();
+    }
+
+    private String formatText(String text, PlayerRef playerRef) {
+        if(playerRef != null) {
+            text = text.replace("{PlayerUsername}", playerRef.getUsername());
+        }
+
+        return text;
     }
 }

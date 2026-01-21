@@ -12,7 +12,7 @@ $C.@PageOverlay {
 
         #Content {
             LayoutMode: Top;
-            Label #TitleWelcome {
+            Label #MainTitle {
                 Text: "";
                 Style: (FontSize: 45, TextColor: #ffffff, Alignment: Center, RenderBold: true);
             }
@@ -42,41 +42,41 @@ $C.@PageOverlay {
                 Group {
                     LayoutMode: Left;
                     Anchor: (Height: 250);
-                    Group {
+                    Group #FirstColGroup {
                         FlexWeight: 1;
                         LayoutMode: TopScrolling;
                         ScrollbarStyle: $C.@DefaultScrollbarStyle;
                         Padding: (Right: 50);
 
-                        Label #TitleServerRules {
-                            Text: "• SERVER RULES";
+                        Label #FirstColTitle {
+                            Text: "";
                             Padding: (Bottom: 15);
                             Style: (FontSize: 30, TextColor: #ffffff, RenderBold: true);
                         }
 
-                        Group #RulesGroup {
+                        Group #FirstColInsideGroup {
                             LayoutMode: Top;
-                            Label #RulesText {
+                            Label #FirstColContent {
                                 Text: "";
                                 Style: (FontSize: 18, TextColor: #ffffff, Wrap: true);
                             }
                         }
                     }
 
-                    Group {
+                    Group #SecondColGroup {
                         FlexWeight: 1;
                         LayoutMode: TopScrolling;
                         ScrollbarStyle: $C.@DefaultScrollbarStyle;
 
-                        Label #TitleUsefulCommands {
-                            Text: "• Useful commands";
+                        Label #SecondColTitle {
+                            Text: "";
                             Padding: (Bottom: 15);
                             Style: (FontSize: 30, TextColor: #ffffff, RenderBold: true);
                         }
 
-                        Group #UsefulCommandsGroup {
+                        Group #SecondColInsideGroup {
                             LayoutMode: Top;
-                            Label #UsefulCommandsText {
+                            Label #SecondColContent {
                                 Text: "";
                                 Style: (FontSize: 18, TextColor: #ffffff, Wrap: true);
                             }
@@ -84,16 +84,17 @@ $C.@PageOverlay {
                     }
                 }
             }
-            Group {
+
+            Group #LinkGroup {
                 LayoutMode: Left;
                 Padding: (Top: 30);
 
-                Label #DiscordTitle {
-                    Text: "Join the discord: ";
+                Label #LinkTitle {
+                    Text: "";
                     Style: (FontSize: 23, TextColor: #ffffff, RenderBold: true);
                 }
 
-                Label #DiscordLink {
+                Label #LinkContent {
                     Text: "";
                     Style: (FontSize: 23, TextColor: #ffffff);
                 }
