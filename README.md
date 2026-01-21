@@ -5,13 +5,17 @@ This is a mod for hytale servers that displays a configurable Welcome UI for pla
 
 <img width="1171" height="1009" alt="Hytale2026-01-19_23-06-04-cropped" src="https://github.com/user-attachments/assets/06ec2561-a532-4c17-8d97-2e283128f159" />
 
-
+## Commands
+- `/show-welcome-ui` - Open WelcomeUI
 
 ## Config file
 ```json
 {
+  "OpenJustOneTimeForNewPlayers": false,
+  "MainTitle": "Welcome {PlayerUsername} to the server!",
   "ServerDescription": "Survive Orbis! Explore vast biomes, build epic bases, and conquer dungeons with friends. Enjoy a stable economy, unique custom mods, and a growing community. Ready for the ultimate adventure? Join the most immersive Hytale Survival experience today!",
-  "Rules": [
+  "FirstColTitle": "• SERVER RULES",
+  "FirstColContent": [
     "1. Respect and Fair Play",
     "2. No Cheating or Third-Party Clients",
     "3. No Exploiting Bugs",
@@ -19,7 +23,8 @@ This is a mod for hytale servers that displays a configurable Welcome UI for pla
     "5. No Language Bypassing",
     "6. Follow Staff Instructions"
   ],
-  "UsefulCommands": [
+  "SecondColTitle": "• Useful commands",
+  "SecondColContent": [
     "1. /spawn – Teleports you to the server's main starting point.",
     "2. /sethome – Saves your current location as your personal home base.",
     "3. /home – Instantly teleports you back to your saved home location.",
@@ -31,6 +36,11 @@ This is a mod for hytale servers that displays a configurable Welcome UI for pla
     "9. /warp [location] – Teleports you to a specific public area or landmark.",
     "10. /help – Provides a full list of available commands and their usage."
   ],
-  "DiscordLink": "https://discord.gg/hytale"
+  "ShowLink": true,
+  "LinkTitle": "Join the discord: ",
+  "LinkContent": "https://discord.gg/hytale"
 }
 ```
+
+### Text format
+`{PlayerUsername}` - Can be use in MainTitle and ServerDescription
