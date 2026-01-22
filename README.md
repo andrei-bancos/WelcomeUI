@@ -1,12 +1,27 @@
 <img width="1000" height="150" alt="WelcomeUIBanner" src="https://github.com/user-attachments/assets/20ec04a0-b50e-4532-aa49-9ff85002daf9" />
 
 # WelcomeUI
-This is a mod for hytale servers that displays a configurable Welcome UI for players entering the server.
+This is a mod for Hytale servers that displays a configurable welcome interface that also contains a button for displaying useful links in chat for players entering the server.
 
-<img width="1171" height="1009" alt="Hytale2026-01-19_23-06-04-cropped" src="https://github.com/user-attachments/assets/06ec2561-a532-4c17-8d97-2e283128f159" />
+## Features
+- Configurable main title.
+- 2 fully configurable columns containing a title and multi-row content, both benefiting from scroll container.
+- Possibility to set it to open only for new players once or always for all players.
+- Button to display useful links in chat (this button is also fully configurable), as well as the message with the links in the chat are fully configurable.
 
 ## Commands
 - `/show-welcome-ui` - Open WelcomeUI
+
+<img width="850" height="650" alt="WelcomeUIMain 1 2 0" src="https://github.com/user-attachments/assets/9779bb42-8402-48a7-9ddc-8d5464a452bf" />
+
+After clicking the button to display useful links in the chat
+
+<img width="850" height="650" alt="WelcomeUIMain 1 2 0 - links" src="https://github.com/user-attachments/assets/bb95249d-3136-4150-9f11-2c9f2e018603" />
+
+The close button is centered in the interface if you choose not to display showLinkBtn.
+
+<img width="850" height="650" alt="WelcomeUIMain 1 2 0 show linksBtn flase" src="https://github.com/user-attachments/assets/6813d484-2274-484b-9738-90fa9dcd8518" />
+
 
 ## Config file
 ```json
@@ -36,9 +51,18 @@ This is a mod for hytale servers that displays a configurable Welcome UI for pla
     "9. /warp [location] – Teleports you to a specific public area or landmark.",
     "10. /help – Provides a full list of available commands and their usage."
   ],
-  "ShowLink": true,
-  "LinkTitle": "Join the discord: ",
-  "LinkContent": "https://discord.gg/hytale"
+  "ShowLinksBtn": true,
+  "LinksBtnText": "Show useful links in chat",
+  "ChatLinksTitle": "Useful links:",
+  "Links": [
+    "https://hytale.com",
+    "https://discord.gg/hytale",
+    "https://vote1.tld",
+    "https://vote2.tld",
+    "https://vote3.tld"
+  ],
+  "ChatLinksTitleColor": "#197dff",
+  "ChatLinksColor": "#ffffff"
 }
 ```
 
