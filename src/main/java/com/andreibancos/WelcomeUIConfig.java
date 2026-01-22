@@ -34,9 +34,18 @@ public class WelcomeUIConfig {
             "10. /help – Provides a full list of available commands and their usage."
     };
 
-    private Boolean showLink = true;
-    private String linkTitle = "Join the discord: ";
-    private String linkContent = "https://discord.gg/hytale";
+    private Boolean showLinksBtn = true;
+    private String linksBtnText = "Show useful links in chat";
+    private String chatLinksTitle = "Useful links:";
+    private String[] links = new String[]{
+            "https://hytale.com",
+            "https://discord.gg/hytale",
+            "https://vote1.tld",
+            "https://vote2.tld",
+            "https://vote3.tld"
+    };
+    private String chatLinksTitleColor = "#197dff";
+    private String chatLinksColor = "#ffffff";
 
     public static final BuilderCodec<WelcomeUIConfig> CODEC = BuilderCodec.builder(WelcomeUIConfig.class, WelcomeUIConfig::new)
             .append(new KeyedCodec<Boolean>("OpenJustOneTimeForNewPlayers", Codec.BOOLEAN),
@@ -63,15 +72,24 @@ public class WelcomeUIConfig {
                     (WelcomeUIConfig, strings) -> WelcomeUIConfig.secondColContent = strings,
                     (WelcomeUIConfig) -> WelcomeUIConfig.secondColContent).add()
 
-            .append(new KeyedCodec<Boolean>("ShowLink", Codec.BOOLEAN),
-                    (WelcomeUIConfig, trueOrFalse) -> WelcomeUIConfig.showLink = trueOrFalse,
-                    (WelcomeUIConfig) -> WelcomeUIConfig.showLink).add()
-            .append(new KeyedCodec<String>("LinkTitle", Codec.STRING),
-                    (WelcomeUIConfig, strings) -> WelcomeUIConfig.linkTitle = strings,
-                    (WelcomeUIConfig) -> WelcomeUIConfig.linkTitle).add()
-            .append(new KeyedCodec<String>("LinkContent", Codec.STRING),
-                    (WelcomeUIConfig, strings) -> WelcomeUIConfig.linkContent = strings,
-                    (WelcomeUIConfig) -> WelcomeUIConfig.linkContent).add()
+            .append(new KeyedCodec<Boolean>("ShowLinksBtn", Codec.BOOLEAN),
+                    (WelcomeUIConfig, trueOrFalse) -> WelcomeUIConfig.showLinksBtn = trueOrFalse,
+                    (WelcomeUIConfig) -> WelcomeUIConfig.showLinksBtn).add()
+            .append(new KeyedCodec<String>("LinksBtnText", Codec.STRING),
+                    (WelcomeUIConfig, strings) -> WelcomeUIConfig.linksBtnText = strings,
+                    (WelcomeUIConfig) -> WelcomeUIConfig.linksBtnText).add()
+            .append(new KeyedCodec<String>("ChatLinksTitle", Codec.STRING),
+                    (WelcomeUIConfig, strings) -> WelcomeUIConfig.chatLinksTitle = strings,
+                    (WelcomeUIConfig) -> WelcomeUIConfig.chatLinksTitle).add()
+            .append(new KeyedCodec<String[]>("Links", Codec.STRING_ARRAY),
+                    (WelcomeUIConfig, strings) -> WelcomeUIConfig.links = strings,
+                    (WelcomeUIConfig) -> WelcomeUIConfig.links).add()
+            .append(new KeyedCodec<String>("ChatLinksTitleColor", Codec.STRING),
+                    (WelcomeUIConfig, strings) -> WelcomeUIConfig.chatLinksTitleColor = strings,
+                    (WelcomeUIConfig) -> WelcomeUIConfig.chatLinksTitleColor).add()
+            .append(new KeyedCodec<String>("ChatLinksColor", Codec.STRING),
+                    (WelcomeUIConfig, strings) -> WelcomeUIConfig.chatLinksColor = strings,
+                    (WelcomeUIConfig) -> WelcomeUIConfig.chatLinksColor).add()
             .build();
 
     public Boolean openJustOneTimeForNewPlayers() {
@@ -102,15 +120,27 @@ public class WelcomeUIConfig {
         return secondColContent;
     }
 
-    public Boolean getShowLink() {
-        return showLink;
+    public Boolean getShowLinksBtn() {
+        return showLinksBtn;
     }
 
-    public String getLinkTitle() {
-        return linkTitle;
+    public String getLinksBtnText() {
+        return linksBtnText;
     }
 
-    public String getLinkContent() {
-        return linkContent;
+    public String[] getLinks() {
+        return links;
+    }
+
+    public String getChatLinksTitle() {
+        return chatLinksTitle;
+    }
+
+    public String getChatLinksTitleColor() {
+        return chatLinksTitleColor;
+    }
+
+    public String getChatLinksColor() {
+        return chatLinksColor;
     }
 }

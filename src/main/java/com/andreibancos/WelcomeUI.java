@@ -2,6 +2,7 @@ package com.andreibancos;
 
 import com.andreibancos.commands.ShowWelcomeUICommand;
 import com.hypixel.hytale.server.core.command.system.CommandRegistry;
+import com.hypixel.hytale.server.core.event.events.player.PlayerConnectEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
@@ -22,6 +23,11 @@ public class WelcomeUI extends JavaPlugin {
         this.config.save();
 
         WelcomeUIEvent welcomeUIEvent = new WelcomeUIEvent(config);
+
+        getEventRegistry().registerGlobal(
+                PlayerConnectEvent.class,
+                welcomeUIEvent::onPlayerConnect
+        );
 
         getEventRegistry().registerGlobal(PlayerReadyEvent.class,
                 welcomeUIEvent::onPlayerReady

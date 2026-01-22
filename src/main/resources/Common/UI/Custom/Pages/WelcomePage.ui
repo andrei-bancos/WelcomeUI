@@ -41,7 +41,7 @@ $C.@PageOverlay {
 
                 Group {
                     LayoutMode: Left;
-                    Anchor: (Height: 250);
+                    Anchor: (Height: 300);
                     Group #FirstColGroup {
                         FlexWeight: 1;
                         LayoutMode: TopScrolling;
@@ -85,32 +85,26 @@ $C.@PageOverlay {
                 }
             }
 
-            Group #LinkGroup {
-                LayoutMode: Left;
-                Padding: (Top: 30);
-
-                Label #LinkTitle {
-                    Text: "";
-                    Style: (FontSize: 23, TextColor: #ffffff, RenderBold: true);
-                }
-
-                Label #LinkContent {
-                    Text: "";
-                    Style: (FontSize: 23, TextColor: #ffffff);
-                }
-            }
-
             Group {
                 FlexWeight: 1;
             }
 
-            Group {
+            Group #BottomButtons {
                 LayoutMode: Center;
+                TextButton #LinksBtn {
+                    Text: "";
+                    Padding: (Left: 15, Right: 15);
+                    Style: $C.@DefaultTextButtonStyle;
+                }
+
+                Group #SpaceBetweenButtons {
+                    FlexWeight: 1;
+                }
 
                 TextButton #CloseBtn {
                     Text: "Close";
                     Anchor: (Width: 150, Height: 50);
-                    Style: $C.@DefaultTextButtonStyle;
+                    Style: $C.@CancelTextButtonStyle;
                 }
             }
         }
